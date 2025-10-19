@@ -1,18 +1,28 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { Upload, X, FileText, ChevronDown, ChevronUp, Mail, Phone, MessageCircle, Sparkles } from "lucide-react"
+import { useState } from "react";
+import {
+  Upload,
+  X,
+  FileText,
+  ChevronDown,
+  ChevronUp,
+  Mail,
+  Phone,
+  MessageCircle,
+  Sparkles,
+} from "lucide-react";
 
-type ProjectType = "upload" | "custom" | null
+type ProjectType = "upload" | "custom" | null;
 
 interface UploadedFile {
-  id: string
-  file: File
-  preview: string
-  selectedFilament: { type: string; color: string } | null
-  quantity: number
+  id: string;
+  file: File;
+  preview: string;
+  selectedFilament: { type: string; color: string } | null;
+  quantity: number;
 }
 
 const inStockFilaments = [
@@ -44,7 +54,7 @@ const inStockFilaments = [
       { name: "White", hex: "#ffffff", inStock: true },
     ],
   },
-]
+];
 
 const allFilaments = [
   {
@@ -72,44 +82,44 @@ const allFilaments = [
       { name: "Gray", hex: "#808080" },
     ],
   },
-]
+];
 
 export default function StartProjectPage() {
-  const [projectType, setProjectType] = useState<ProjectType>(null)
-  const [uploadedFiles, setUploadedFiles] = useState<UploadedFile[]>([])
-  const [isDragging, setIsDragging] = useState(false)
-  const [showFilamentGuide, setShowFilamentGuide] = useState(false)
-  const [showRequestFilament, setShowRequestFilament] = useState(false)
-  const [selectedFileId, setSelectedFileId] = useState<string | null>(null)
+  const [projectType, setProjectType] = useState<ProjectType>(null);
+  const [uploadedFiles, setUploadedFiles] = useState<UploadedFile[]>([]);
+  const [isDragging, setIsDragging] = useState(false);
+  const [showFilamentGuide, setShowFilamentGuide] = useState(false);
+  const [showRequestFilament, setShowRequestFilament] = useState(false);
+  const [selectedFileId, setSelectedFileId] = useState<string | null>(null);
 
   // Contact form state
-  const [email, setEmail] = useState("")
-  const [phone, setPhone] = useState("")
-  const [contactType, setContactType] = useState<"whatsapp" | "email">("email")
-  const [customDesignDetails, setCustomDesignDetails] = useState("")
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [contactType, setContactType] = useState<"whatsapp" | "email">("email");
+  const [customDesignDetails, setCustomDesignDetails] = useState("");
 
   const handleDragOver = (e: React.DragEvent) => {
-    e.preventDefault()
-    setIsDragging(true)
-  }
+    e.preventDefault();
+    setIsDragging(true);
+  };
 
   const handleDragLeave = () => {
-    setIsDragging(false)
-  }
+    setIsDragging(false);
+  };
 
   const handleDrop = (e: React.DragEvent) => {
-    e.preventDefault()
-    setIsDragging(false)
-    const files = Array.from(e.dataTransfer.files)
-    handleFiles(files)
-  }
+    e.preventDefault();
+    setIsDragging(false);
+    const files = Array.from(e.dataTransfer.files);
+    handleFiles(files);
+  };
 
   const handleFileInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
-      const files = Array.from(e.target.files)
-      handleFiles(files)
+      const files = Array.from(e.target.files);
+      handleFiles(files);
     }
-  }
+  };
 
   const handleFiles = (files: File[]) => {
     const newFiles: UploadedFile[] = files.map((file) => ({
@@ -118,40 +128,57 @@ export default function StartProjectPage() {
       preview: URL.createObjectURL(file),
       selectedFilament: null,
       quantity: 1,
-    }))
-    setUploadedFiles([...uploadedFiles, ...newFiles])
-  }
+    }));
+    setUploadedFiles([...uploadedFiles, ...newFiles]);
+  };
 
   const removeFile = (id: string) => {
-    setUploadedFiles(uploadedFiles.filter((f) => f.id !== id))
-    if (selectedFileId === id) setSelectedFileId(null)
-  }
+    setUploadedFiles(uploadedFiles.filter((f) => f.id !== id));
+    if (selectedFileId === id) setSelectedFileId(null);
+  };
 
   const updateFileFilament = (id: string, type: string, color: string) => {
-    setUploadedFiles(uploadedFiles.map((f) => (f.id === id ? { ...f, selectedFilament: { type, color } } : f)))
-  }
+    setUploadedFiles(
+      uploadedFiles.map((f) =>
+        f.id === id ? { ...f, selectedFilament: { type, color } } : f
+      )
+    );
+  };
 
   const updateFileQuantity = (id: string, quantity: number) => {
-    setUploadedFiles(uploadedFiles.map((f) => (f.id === id ? { ...f, quantity: Math.max(1, quantity) } : f)))
-  }
+    setUploadedFiles(
+      uploadedFiles.map((f) =>
+        f.id === id ? { ...f, quantity: Math.max(1, quantity) } : f
+      )
+    );
+  };
 
   const handleSubmit = () => {
     if (projectType === "upload") {
-      console.log("Submitting upload project:", uploadedFiles)
-      alert("Project submitted! We'll contact you soon with a quote.")
+      console.log("Submitting upload project:", uploadedFiles);
+      alert("Project submitted! We'll contact you soon with a quote.");
     } else if (projectType === "custom") {
-      console.log("Submitting custom design:", { email, phone, contactType, customDesignDetails })
-      alert("Custom design request submitted! We'll contact you soon.")
+      console.log("Submitting custom design:", {
+        email,
+        phone,
+        contactType,
+        customDesignDetails,
+      });
+      alert("Custom design request submitted! We'll contact you soon.");
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-background pt-14">
       <div className="container mx-auto px-6 py-12">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="font-pixel text-5xl text-foreground mb-4">Start Your Project</h1>
-          <p className="font-mono text-muted-foreground text-lg">Upload your design files or request a custom design</p>
+          <h1 className="font-pixel text-5xl text-foreground mb-4">
+            Start Your Project
+          </h1>
+          <p className="font-mono text-muted-foreground text-lg">
+            Upload your design files or request a custom design
+          </p>
         </div>
 
         {/* Project Type Selection */}
@@ -164,9 +191,12 @@ export default function StartProjectPage() {
               <div className="absolute top-4 right-4">
                 <Upload className="h-8 w-8 text-primary" />
               </div>
-              <h2 className="font-pixel text-2xl text-foreground mb-3">Upload Design Files</h2>
+              <h2 className="font-pixel text-2xl text-foreground mb-3">
+                Upload Design Files
+              </h2>
               <p className="font-mono text-sm text-muted-foreground">
-                Have STL or 3DS files ready? Upload them and select your preferred filament and colors.
+                Have STL or 3DS files ready? Upload them and select your
+                preferred filament and colors.
               </p>
             </button>
 
@@ -177,9 +207,12 @@ export default function StartProjectPage() {
               <div className="absolute top-4 right-4">
                 <FileText className="h-8 w-8 text-secondary" />
               </div>
-              <h2 className="font-pixel text-2xl text-foreground mb-3">Custom Design</h2>
+              <h2 className="font-pixel text-2xl text-foreground mb-3">
+                Custom Design
+              </h2>
               <p className="font-mono text-sm text-muted-foreground">
-                Need a custom design? Share your requirements and we'll create it for you.
+                Need a custom design? Share your requirements and we'll create
+                it for you.
               </p>
             </button>
           </div>
@@ -203,12 +236,18 @@ export default function StartProjectPage() {
                   onDragLeave={handleDragLeave}
                   onDrop={handleDrop}
                   className={`relative border-2 border-dashed rounded-2xl p-12 text-center transition-all ${
-                    isDragging ? "border-primary bg-primary/5" : "border-border bg-card"
+                    isDragging
+                      ? "border-primary bg-primary/5"
+                      : "border-border bg-card"
                   }`}
                 >
                   <Upload className="h-16 w-16 mx-auto mb-4 text-muted-foreground" />
-                  <h3 className="font-pixel text-xl text-foreground mb-2">Drop Files Here</h3>
-                  <p className="font-mono text-sm text-muted-foreground mb-4">or click to browse (STL, 3DS, OBJ)</p>
+                  <h3 className="font-pixel text-xl text-foreground mb-2">
+                    Drop Files Here
+                  </h3>
+                  <p className="font-mono text-sm text-muted-foreground mb-4">
+                    or click to browse (STL, 3DS, OBJ)
+                  </p>
                   <input
                     type="file"
                     multiple
@@ -221,7 +260,9 @@ export default function StartProjectPage() {
                 {/* Uploaded Files List */}
                 {uploadedFiles.length > 0 && (
                   <div className="space-y-4">
-                    <h3 className="font-pixel text-xl text-foreground">Uploaded Files ({uploadedFiles.length})</h3>
+                    <h3 className="font-pixel text-xl text-foreground">
+                      Uploaded Files ({uploadedFiles.length})
+                    </h3>
                     {uploadedFiles.map((file) => (
                       <div
                         key={file.id}
@@ -233,7 +274,9 @@ export default function StartProjectPage() {
                       >
                         <div className="flex items-start justify-between mb-3">
                           <div className="flex-1">
-                            <p className="font-mono text-sm font-semibold text-foreground truncate">{file.file.name}</p>
+                            <p className="font-mono text-sm font-semibold text-foreground truncate">
+                              {file.file.name}
+                            </p>
                             <p className="font-mono text-xs text-muted-foreground">
                               {(file.file.size / 1024).toFixed(2)} KB
                             </p>
@@ -248,7 +291,11 @@ export default function StartProjectPage() {
 
                         {/* Filament Selection for this file */}
                         <button
-                          onClick={() => setSelectedFileId(selectedFileId === file.id ? null : file.id)}
+                          onClick={() =>
+                            setSelectedFileId(
+                              selectedFileId === file.id ? null : file.id
+                            )
+                          }
                           className="w-full px-3 py-2 rounded-lg border border-border bg-background font-mono text-sm text-left hover:bg-muted transition-colors"
                         >
                           {file.selectedFilament
@@ -259,20 +306,33 @@ export default function StartProjectPage() {
                         {selectedFileId === file.id && (
                           <div className="mt-3 p-3 rounded-lg bg-background border border-border space-y-3">
                             {inStockFilaments.map((filament) => (
-                              <div key={filament.type} className="flex items-center gap-3">
-                                <span className="font-pixel text-sm text-foreground w-16">{filament.type}</span>
+                              <div
+                                key={filament.type}
+                                className="flex items-center gap-3"
+                              >
+                                <span className="font-pixel text-sm text-foreground w-16">
+                                  {filament.type}
+                                </span>
                                 <div className="flex gap-2">
                                   {filament.colors.map((color) => (
                                     <button
                                       key={color.name}
-                                      onClick={() => updateFileFilament(file.id, filament.type, color.name)}
+                                      onClick={() =>
+                                        updateFileFilament(
+                                          file.id,
+                                          filament.type,
+                                          color.name
+                                        )
+                                      }
                                       className="group relative"
                                       title={`${filament.type} - ${color.name}`}
                                     >
                                       <div
                                         className={`w-8 h-8 rounded-full border-2 shadow-md transition-all ${
-                                          file.selectedFilament?.type === filament.type &&
-                                          file.selectedFilament?.color === color.name
+                                          file.selectedFilament?.type ===
+                                            filament.type &&
+                                          file.selectedFilament?.color ===
+                                            color.name
                                             ? "border-primary scale-110"
                                             : "border-border hover:border-muted-foreground hover:scale-105"
                                         }`}
@@ -291,17 +351,25 @@ export default function StartProjectPage() {
 
                         {/* Quantity */}
                         <div className="mt-3 flex items-center gap-3">
-                          <span className="font-mono text-sm text-muted-foreground">Quantity:</span>
+                          <span className="font-mono text-sm text-muted-foreground">
+                            Quantity:
+                          </span>
                           <div className="flex items-center gap-2">
                             <button
-                              onClick={() => updateFileQuantity(file.id, file.quantity - 1)}
+                              onClick={() =>
+                                updateFileQuantity(file.id, file.quantity - 1)
+                              }
                               className="w-8 h-8 rounded-full border border-border hover:bg-muted transition-colors font-mono"
                             >
                               -
                             </button>
-                            <span className="font-mono text-sm font-semibold w-8 text-center">{file.quantity}</span>
+                            <span className="font-mono text-sm font-semibold w-8 text-center">
+                              {file.quantity}
+                            </span>
                             <button
-                              onClick={() => updateFileQuantity(file.id, file.quantity + 1)}
+                              onClick={() =>
+                                updateFileQuantity(file.id, file.quantity + 1)
+                              }
                               className="w-8 h-8 rounded-full border border-border hover:bg-muted transition-colors font-mono"
                             >
                               +
@@ -318,11 +386,18 @@ export default function StartProjectPage() {
               <div className="space-y-6">
                 {/* In Stock Filaments */}
                 <div className="p-6 rounded-2xl border-2 border-border bg-card">
-                  <h3 className="font-pixel text-xl text-foreground mb-4">In Stock Filaments</h3>
+                  <h3 className="font-pixel text-xl text-foreground mb-4">
+                    In Stock Filaments
+                  </h3>
                   <div className="space-y-4">
                     {inStockFilaments.map((filament) => (
-                      <div key={filament.type} className="flex items-center justify-between">
-                        <span className="font-pixel text-base text-foreground">{filament.type}</span>
+                      <div
+                        key={filament.type}
+                        className="flex items-center justify-between"
+                      >
+                        <span className="font-pixel text-base text-foreground">
+                          {filament.type}
+                        </span>
                         <div className="flex gap-2">
                           {filament.colors.map((color) => (
                             <div key={color.name} className="relative">
@@ -343,7 +418,8 @@ export default function StartProjectPage() {
                     ))}
                   </div>
                   <p className="font-mono text-xs text-muted-foreground mt-4">
-                    <Sparkles className="h-3 w-3 inline text-secondary" /> = On Special
+                    <Sparkles className="h-3 w-3 inline text-secondary" /> = On
+                    Special
                   </p>
                 </div>
 
@@ -353,33 +429,51 @@ export default function StartProjectPage() {
                     onClick={() => setShowFilamentGuide(!showFilamentGuide)}
                     className="w-full p-4 flex items-center justify-between hover:bg-muted transition-colors"
                   >
-                    <span className="font-pixel text-lg text-foreground">Choose the Right Filament</span>
-                    {showFilamentGuide ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
+                    <span className="font-pixel text-lg text-foreground">
+                      Choose the Right Filament
+                    </span>
+                    {showFilamentGuide ? (
+                      <ChevronUp className="h-5 w-5" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5" />
+                    )}
                   </button>
                   {showFilamentGuide && (
                     <div className="p-4 border-t border-border space-y-4">
                       <div>
-                        <h4 className="font-pixel text-sm text-primary mb-1">PLA</h4>
+                        <h4 className="font-pixel text-sm text-primary mb-1">
+                          PLA
+                        </h4>
                         <p className="font-mono text-xs text-muted-foreground">
-                          Best for: Prototypes, decorative items, low-stress parts. Easy to print, biodegradable.
+                          Best for: Prototypes, decorative items, low-stress
+                          parts. Easy to print, biodegradable.
                         </p>
                       </div>
                       <div>
-                        <h4 className="font-pixel text-sm text-primary mb-1">PETG</h4>
+                        <h4 className="font-pixel text-sm text-primary mb-1">
+                          PETG
+                        </h4>
                         <p className="font-mono text-xs text-muted-foreground">
-                          Best for: Functional parts, outdoor use, food-safe applications. Strong and durable.
+                          Best for: Functional parts, outdoor use, food-safe
+                          applications. Strong and durable.
                         </p>
                       </div>
                       <div>
-                        <h4 className="font-pixel text-sm text-primary mb-1">TPU</h4>
+                        <h4 className="font-pixel text-sm text-primary mb-1">
+                          TPU
+                        </h4>
                         <p className="font-mono text-xs text-muted-foreground">
-                          Best for: Flexible parts, phone cases, seals. Rubber-like flexibility.
+                          Best for: Flexible parts, phone cases, seals.
+                          Rubber-like flexibility.
                         </p>
                       </div>
                       <div>
-                        <h4 className="font-pixel text-sm text-primary mb-1">ABS</h4>
+                        <h4 className="font-pixel text-sm text-primary mb-1">
+                          ABS
+                        </h4>
                         <p className="font-mono text-xs text-muted-foreground">
-                          Best for: High-temperature parts, automotive, enclosures. Very strong and heat-resistant.
+                          Best for: High-temperature parts, automotive,
+                          enclosures. Very strong and heat-resistant.
                         </p>
                       </div>
                     </div>
@@ -392,17 +486,26 @@ export default function StartProjectPage() {
                     onClick={() => setShowRequestFilament(!showRequestFilament)}
                     className="w-full p-4 flex items-center justify-between hover:bg-muted transition-colors"
                   >
-                    <span className="font-pixel text-lg text-foreground">Request Different Filament</span>
-                    {showRequestFilament ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
+                    <span className="font-pixel text-lg text-foreground">
+                      Request Different Filament
+                    </span>
+                    {showRequestFilament ? (
+                      <ChevronUp className="h-5 w-5" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5" />
+                    )}
                   </button>
                   {showRequestFilament && (
                     <div className="p-4 border-t border-border space-y-4">
                       <p className="font-mono text-xs text-muted-foreground mb-3">
-                        Need a filament or color we don't have in stock? Select from our full range below.
+                        Need a filament or color we don't have in stock? Select
+                        from our full range below.
                       </p>
                       {allFilaments.map((filament) => (
                         <div key={filament.type}>
-                          <h4 className="font-pixel text-sm text-foreground mb-2">{filament.type}</h4>
+                          <h4 className="font-pixel text-sm text-foreground mb-2">
+                            {filament.type}
+                          </h4>
                           <div className="grid grid-cols-5 gap-2">
                             {filament.colors.map((color) => (
                               <div key={color.name} className="text-center">
@@ -410,7 +513,9 @@ export default function StartProjectPage() {
                                   className="w-10 h-10 rounded-full border-2 border-border shadow-md mx-auto mb-1"
                                   style={{ backgroundColor: color.hex }}
                                 />
-                                <p className="font-mono text-[10px] text-muted-foreground">{color.name}</p>
+                                <p className="font-mono text-[10px] text-muted-foreground">
+                                  {color.name}
+                                </p>
                               </div>
                             ))}
                           </div>
@@ -445,11 +550,15 @@ export default function StartProjectPage() {
             </button>
 
             <div className="p-8 rounded-2xl border-2 border-border bg-card space-y-6">
-              <h2 className="font-pixel text-2xl text-foreground">Custom Design Request</h2>
+              <h2 className="font-pixel text-2xl text-foreground">
+                Custom Design Request
+              </h2>
 
               {/* Design Details */}
               <div>
-                <label className="block font-mono text-sm text-foreground mb-2">Project Description</label>
+                <label className="block font-mono text-sm text-foreground mb-2">
+                  Project Description
+                </label>
                 <textarea
                   value={customDesignDetails}
                   onChange={(e) => setCustomDesignDetails(e.target.value)}
@@ -461,10 +570,14 @@ export default function StartProjectPage() {
 
               {/* Contact Details */}
               <div className="space-y-4">
-                <h3 className="font-pixel text-lg text-foreground">Contact Information</h3>
+                <h3 className="font-pixel text-lg text-foreground">
+                  Contact Information
+                </h3>
 
                 <div>
-                  <label className="block font-mono text-sm text-foreground mb-2">Email Address</label>
+                  <label className="block font-mono text-sm text-foreground mb-2">
+                    Email Address
+                  </label>
                   <div className="relative">
                     <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                     <input
@@ -478,7 +591,9 @@ export default function StartProjectPage() {
                 </div>
 
                 <div>
-                  <label className="block font-mono text-sm text-foreground mb-2">Phone Number</label>
+                  <label className="block font-mono text-sm text-foreground mb-2">
+                    Phone Number
+                  </label>
                   <div className="relative">
                     <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                     <input
@@ -493,7 +608,9 @@ export default function StartProjectPage() {
 
                 {/* Contact Type */}
                 <div>
-                  <label className="block font-mono text-sm text-foreground mb-2">Preferred Contact Method</label>
+                  <label className="block font-mono text-sm text-foreground mb-2">
+                    Preferred Contact Method
+                  </label>
                   <div className="grid grid-cols-2 gap-3">
                     <button
                       onClick={() => setContactType("email")}
@@ -534,5 +651,5 @@ export default function StartProjectPage() {
         )}
       </div>
     </div>
-  )
+  );
 }

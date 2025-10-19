@@ -1,4 +1,56 @@
-import { Mail, Phone, MapPin, Send } from "lucide-react"
+import { Mail, Phone, MapPin, Send } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact JRX Studios - 3D Printing & Design Services",
+  description:
+    "Get in touch with JRX Studios for professional 3D printing, product design, web development, and electronics solutions. Located in Pretoria, South Africa. Fast response, expert consultation.",
+  keywords: [
+    "contact JRX Studios",
+    "3D printing consultation",
+    "product design inquiry",
+    "web development contact",
+    "electronics consultation",
+    "Pretoria 3D printing",
+    "South Africa design services",
+    "custom project inquiry",
+    "prototype consultation",
+    "manufacturing services",
+    "Ruan Klopper contact",
+    "Johnny Dippenaar contact",
+    "business hours",
+    "customer service",
+    "project consultation",
+    "quote request",
+    "technical support",
+    "design consultation",
+  ],
+  openGraph: {
+    title: "Contact JRX Studios - 3D Printing & Design Services",
+    description:
+      "Get in touch with JRX Studios for professional 3D printing, product design, web development, and electronics solutions. Located in Pretoria, South Africa.",
+    url: "https://jrxstudios.co.za/contact",
+    type: "website",
+    images: [
+      {
+        url: "https://jrxstudios.co.za/developer-portrait.png",
+        width: 1200,
+        height: 630,
+        alt: "Contact JRX Studios team for 3D printing and design services",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact JRX Studios - 3D Printing & Design Services",
+    description:
+      "Get in touch with JRX Studios for professional 3D printing, product design, web development, and electronics solutions.",
+    images: ["https://jrxstudios.co.za/developer-portrait.png"],
+  },
+  alternates: {
+    canonical: "https://jrxstudios.co.za/contact",
+  },
+};
 
 export default function ContactPage() {
   return (
@@ -8,28 +60,40 @@ export default function ContactPage() {
 
       <div className="container mx-auto px-6 py-16 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="font-pixel text-5xl md:text-6xl text-foreground mb-4">Contact Us</h1>
+        <header className="text-center mb-16">
+          <h1 className="font-pixel text-5xl md:text-6xl text-foreground mb-4">
+            Contact Us
+          </h1>
           <p className="font-mono text-lg text-muted-foreground max-w-2xl mx-auto">
-            Get in touch with our team. We're here to help bring your 3D printing projects to life.
+            Get in touch with our team. We're here to help bring your 3D
+            printing projects to life. Professional consultation for product
+            design, web development, and electronics solutions.
           </p>
-        </div>
+        </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Left: Contact Form */}
-          <div className="bg-card border-2 border-border rounded-2xl p-8 shadow-lg relative overflow-hidden">
+          <section
+            className="bg-card border-2 border-border rounded-2xl p-8 shadow-lg relative overflow-hidden"
+            aria-label="Contact form"
+          >
             {/* Decorative corners */}
             <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-primary" />
             <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-primary" />
             <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-primary" />
             <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-primary" />
 
-            <h2 className="font-pixel text-3xl text-foreground mb-6">Send us a message</h2>
+            <h2 className="font-pixel text-3xl text-foreground mb-6">
+              Send us a message
+            </h2>
 
             <form className="space-y-6">
               {/* Name */}
               <div>
-                <label htmlFor="name" className="block font-mono text-sm text-foreground mb-2">
+                <label
+                  htmlFor="name"
+                  className="block font-mono text-sm text-foreground mb-2"
+                >
                   Your Name
                 </label>
                 <input
@@ -42,7 +106,10 @@ export default function ContactPage() {
 
               {/* Email */}
               <div>
-                <label htmlFor="email" className="block font-mono text-sm text-foreground mb-2">
+                <label
+                  htmlFor="email"
+                  className="block font-mono text-sm text-foreground mb-2"
+                >
                   Email Address
                 </label>
                 <input
@@ -55,7 +122,10 @@ export default function ContactPage() {
 
               {/* Phone */}
               <div>
-                <label htmlFor="phone" className="block font-mono text-sm text-foreground mb-2">
+                <label
+                  htmlFor="phone"
+                  className="block font-mono text-sm text-foreground mb-2"
+                >
                   Phone Number
                 </label>
                 <input
@@ -68,7 +138,9 @@ export default function ContactPage() {
 
               {/* Contact Preference */}
               <div>
-                <label className="block font-mono text-sm text-foreground mb-3">Preferred Contact Method</label>
+                <label className="block font-mono text-sm text-foreground mb-3">
+                  Preferred Contact Method
+                </label>
                 <div className="flex gap-4">
                   <label className="flex items-center gap-2 cursor-pointer">
                     <input
@@ -94,7 +166,10 @@ export default function ContactPage() {
 
               {/* Message */}
               <div>
-                <label htmlFor="message" className="block font-mono text-sm text-foreground mb-2">
+                <label
+                  htmlFor="message"
+                  className="block font-mono text-sm text-foreground mb-2"
+                >
                   Your Message
                 </label>
                 <textarea
@@ -114,10 +189,13 @@ export default function ContactPage() {
                 Send Message
               </button>
             </form>
-          </div>
+          </section>
 
           {/* Right: Contact Information */}
-          <div className="space-y-8">
+          <aside
+            className="space-y-8"
+            aria-label="Contact information and business details"
+          >
             {/* Team Members */}
             <div className="bg-card border-2 border-border rounded-2xl p-8 shadow-lg relative overflow-hidden">
               {/* Decorative corners */}
@@ -126,12 +204,16 @@ export default function ContactPage() {
               <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-secondary" />
               <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-secondary" />
 
-              <h2 className="font-pixel text-3xl text-foreground mb-6">Our Team</h2>
+              <h2 className="font-pixel text-3xl text-foreground mb-6">
+                Our Team
+              </h2>
 
               <div className="space-y-6">
                 {/* Ruan Klopper */}
                 <div className="pb-6 border-b border-border">
-                  <h3 className="font-pixel text-xl text-primary mb-3">Ruan Klopper</h3>
+                  <h3 className="font-pixel text-xl text-primary mb-3">
+                    Ruan Klopper
+                  </h3>
                   <div className="space-y-2">
                     <a
                       href="tel:+27123456789"
@@ -152,7 +234,9 @@ export default function ContactPage() {
 
                 {/* Johnny Dippenaar */}
                 <div>
-                  <h3 className="font-pixel text-xl text-secondary mb-3">Johnny Dippenaar</h3>
+                  <h3 className="font-pixel text-xl text-secondary mb-3">
+                    Johnny Dippenaar
+                  </h3>
                   <div className="space-y-2">
                     <a
                       href="tel:+27123456790"
@@ -181,22 +265,30 @@ export default function ContactPage() {
               <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-primary" />
               <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-primary" />
 
-              <h2 className="font-pixel text-3xl text-foreground mb-6">Visit Us</h2>
+              <h2 className="font-pixel text-3xl text-foreground mb-6">
+                Visit Us
+              </h2>
 
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <MapPin className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                   <div>
-                    <p className="font-mono text-sm text-foreground mb-1">JRX Studios</p>
-                    <p className="font-mono text-sm text-muted-foreground">Pretoria</p>
-                    <p className="font-mono text-sm text-muted-foreground">South Africa</p>
+                    <p className="font-mono text-sm text-foreground mb-1">
+                      JRX Studios
+                    </p>
+                    <p className="font-mono text-sm text-muted-foreground">
+                      Pretoria
+                    </p>
+                    <p className="font-mono text-sm text-muted-foreground">
+                      South Africa
+                    </p>
                   </div>
                 </div>
 
                 <div className="mt-6 p-4 bg-primary/5 border border-primary/20 rounded-lg">
                   <p className="font-mono text-xs text-muted-foreground">
-                    We're located in Pretoria, South Africa. Contact us to schedule a visit or discuss your 3D printing
-                    needs.
+                    We're located in Pretoria, South Africa. Contact us to
+                    schedule a visit or discuss your 3D printing needs.
                   </p>
                 </div>
               </div>
@@ -204,7 +296,9 @@ export default function ContactPage() {
 
             {/* Business Hours */}
             <div className="bg-gradient-to-br from-primary/10 to-secondary/10 border-2 border-border rounded-2xl p-8 shadow-lg">
-              <h2 className="font-pixel text-2xl text-foreground mb-4">Business Hours</h2>
+              <h2 className="font-pixel text-2xl text-foreground mb-4">
+                Business Hours
+              </h2>
               <div className="space-y-2 font-mono text-sm">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Monday - Friday</span>
@@ -220,9 +314,9 @@ export default function ContactPage() {
                 </div>
               </div>
             </div>
-          </div>
+          </aside>
         </div>
       </div>
     </div>
-  )
+  );
 }

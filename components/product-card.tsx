@@ -1,19 +1,26 @@
-"use client"
+"use client";
 
-import { Download, Package, Cpu, Wrench } from "lucide-react"
-import Link from "next/link"
+import { Download, Package, Cpu, Wrench } from "lucide-react";
+import Link from "next/link";
 
-export type ProductType = "3d-print" | "stl-file" | "handcrafted" | "electronic"
+export type ProductType =
+  | "3d-print"
+  | "stl-file"
+  | "handcrafted"
+  | "electronic";
 
 export interface Product {
-  id: number
-  name: string
-  price: string
-  badge?: string
-  image: string
-  category: string
-  type: ProductType
-  color: "primary" | "secondary"
+  id: number;
+  name: string;
+  price: string;
+  badge?: string;
+  image: string;
+  category: string;
+  type: ProductType;
+  color: "primary" | "secondary";
+  rating?: number;
+  reviews?: number;
+  sales?: number;
 }
 
 const typeConfig = {
@@ -37,17 +44,17 @@ const typeConfig = {
     icon: Cpu,
     gradient: "from-secondary/20 to-secondary/5",
   },
-}
+};
 
 interface ProductCardProps {
-  product: Product
-  onClick?: () => void
+  product: Product;
+  onClick?: () => void;
 }
 
 export const ProductCard = ({ product, onClick }: ProductCardProps) => {
-  const isPrimary = product.color === "primary"
-  const config = typeConfig[product.type]
-  const Icon = config.icon
+  const isPrimary = product.color === "primary";
+  const config = typeConfig[product.type];
+  const Icon = config.icon;
 
   return (
     <Link href={`/products/${product.id}`} className="block">
@@ -108,7 +115,9 @@ export const ProductCard = ({ product, onClick }: ProductCardProps) => {
         <div className="aspect-square relative overflow-hidden">
           <div
             className={`absolute inset-0 bg-gradient-to-t opacity-0 group-hover:opacity-100 transition-opacity z-10 ${
-              isPrimary ? "from-primary/20 to-transparent" : "from-secondary/20 to-transparent"
+              isPrimary
+                ? "from-primary/20 to-transparent"
+                : "from-secondary/20 to-transparent"
             }`}
           />
           <img
@@ -125,8 +134,12 @@ export const ProductCard = ({ product, onClick }: ProductCardProps) => {
             className="absolute inset-0 opacity-5 pointer-events-none"
             style={{
               backgroundImage: `
-                linear-gradient(${isPrimary ? "#FF004C" : "#7B3FF2"} 1px, transparent 1px),
-                linear-gradient(90deg, ${isPrimary ? "#FF004C" : "#7B3FF2"} 1px, transparent 1px)
+                linear-gradient(${
+                  isPrimary ? "#FF004C" : "#7B3FF2"
+                } 1px, transparent 1px),
+                linear-gradient(90deg, ${
+                  isPrimary ? "#FF004C" : "#7B3FF2"
+                } 1px, transparent 1px)
               `,
               backgroundSize: "8px 8px",
             }}
@@ -142,8 +155,14 @@ export const ProductCard = ({ product, onClick }: ProductCardProps) => {
           {/* Price & CTA */}
           <div className="flex items-center justify-between border-t-2 border-border relative pt-3">
             <div className="flex flex-col">
-              <span className="font-mono text-xs text-muted-foreground mb-1">Price</span>
-              <span className={`font-pixel text-3xl ${isPrimary ? "text-primary" : "text-secondary"}`}>
+              <span className="font-mono text-xs text-muted-foreground mb-1">
+                Price
+              </span>
+              <span
+                className={`font-pixel text-3xl ${
+                  isPrimary ? "text-primary" : "text-secondary"
+                }`}
+              >
                 {product.price}
               </span>
             </div>
@@ -167,5 +186,5 @@ export const ProductCard = ({ product, onClick }: ProductCardProps) => {
         </div>
       </div>
     </Link>
-  )
-}
+  );
+};

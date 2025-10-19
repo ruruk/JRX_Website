@@ -1,4 +1,218 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<sitemap><loc>https://nextjs-marketing-website.basehub.com/sitemap-0.xml</loc></sitemap>
-</sitemapindex>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://jrxstudios.co.za/</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://jrxstudios.co.za/3d-printer-fdm-printing.jpg</image:loc>
+      <image:title>Professional 3D Printing Services</image:title>
+      <image:caption>JRX Studios professional 3D printing facility</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Products Page -->
+  <url>
+    <loc>https://jrxstudios.co.za/products</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://jrxstudios.co.za/3d-printed-phone-stand.jpg</image:loc>
+      <image:title>3D Printed Products</image:title>
+      <image:caption>Browse our collection of 3D printed products and accessories</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Individual Product Pages -->
+  <url>
+    <loc>https://jrxstudios.co.za/products/phone-stand-pro</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://jrxstudios.co.za/3d-printed-phone-stand.jpg</image:loc>
+      <image:title>Phone Stand Pro</image:title>
+      <image:caption>Professional 3D printed phone stand</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://jrxstudios.co.za/products/cable-organizer-set</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://jrxstudios.co.za/cable-organizer.jpg</image:loc>
+      <image:title>Cable Organizer Set</image:title>
+      <image:caption>3D printed cable management solution</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://jrxstudios.co.za/products/desk-organizer</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://jrxstudios.co.za/desk-organizer.jpg</image:loc>
+      <image:title>Desk Organizer</image:title>
+      <image:caption>Professional desk organization solution</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://jrxstudios.co.za/products/arduino-case</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://jrxstudios.co.za/arduino-case.jpg</image:loc>
+      <image:title>Arduino Case</image:title>
+      <image:caption>Protective case for Arduino projects</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://jrxstudios.co.za/products/tool-holder</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://jrxstudios.co.za/tool-holder-3d-print.jpg</image:loc>
+      <image:title>Tool Holder</image:title>
+      <image:caption>Professional tool organization solution</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Services Pages -->
+  <url>
+    <loc>https://jrxstudios.co.za/start-project</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://jrxstudios.co.za/stl-file-3d-model-upload.jpg</image:loc>
+      <image:title>Start Your Project</image:title>
+      <image:caption>Upload your STL files and get instant quotes</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://jrxstudios.co.za/contact</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://jrxstudios.co.za/developer-portrait.png</image:loc>
+      <image:title>Contact JRX Studios</image:title>
+      <image:caption>Get in touch with our team</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://jrxstudios.co.za/filament-guide</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://jrxstudios.co.za/3d-printing-filament-spools-colorful.jpg</image:loc>
+      <image:title>Filament Guide</image:title>
+      <image:caption>Complete guide to 3D printing materials</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Additional Service Pages -->
+  <url>
+    <loc>https://jrxstudios.co.za/services/3d-printing</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://jrxstudios.co.za/services/product-design</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://jrxstudios.co.za/services/web-development</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://jrxstudios.co.za/services/electronics</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog/Resources (if applicable) -->
+  <url>
+    <loc>https://jrxstudios.co.za/blog</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://jrxstudios.co.za/resources/3d-printing-guide</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://jrxstudios.co.za/resources/material-comparison</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- About Pages -->
+  <url>
+    <loc>https://jrxstudios.co.za/about</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://jrxstudios.co.za/about/team</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Legal Pages -->
+  <url>
+    <loc>https://jrxstudios.co.za/privacy-policy</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://jrxstudios.co.za/terms-of-service</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://jrxstudios.co.za/shipping-policy</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+</urlset>
