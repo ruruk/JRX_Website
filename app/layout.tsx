@@ -27,32 +27,45 @@ const vt323 = VT323({
 
 export const metadata = {
   title: {
-    default: "JRX Studios - Professional 3D Printing & Product Design Services",
-    template: "%s | JRX Studios",
+    default:
+      "JRX Studios - 3D Printing Services Pretoria | Product Design & Prototyping",
+    template: "%s | JRX Studios Pretoria",
   },
   description:
-    "Professional 3D printing services, product design, web development, and electronics solutions in South Africa. Custom prototypes, industrial parts, and innovative designs by Ruan Klopper and Johnny Dippenaar.",
+    "Leading 3D printing services in Pretoria, South Africa. Professional FDM printing, product design, rapid prototyping, and electronics solutions. Custom parts, prototypes, and manufacturing services by JRX Studios.",
   keywords: [
+    "3D printing Pretoria",
     "3D printing South Africa",
-    "product design",
-    "prototyping",
-    "industrial design",
-    "web development",
-    "electronics",
-    "CAD design",
-    "STL files",
-    "custom manufacturing",
-    "rapid prototyping",
-    "FDM printing",
-    "PLA PETG ABS",
-    "Pretoria 3D printing",
-    "small scale manufacturing",
-    "large scale production",
-    "IoT solutions",
-    "embedded systems",
-    "custom enclosures",
-    "precision parts",
-    "tooling fixtures",
+    "Pretoria 3D printing services",
+    "Gauteng 3D printing",
+    "product design Pretoria",
+    "rapid prototyping Pretoria",
+    "custom manufacturing Pretoria",
+    "FDM printing Pretoria",
+    "PLA printing Pretoria",
+    "PETG printing Pretoria",
+    "ABS printing Pretoria",
+    "STL files Pretoria",
+    "CAD design Pretoria",
+    "prototyping services Pretoria",
+    "industrial design Pretoria",
+    "electronics Pretoria",
+    "IoT solutions Pretoria",
+    "embedded systems Pretoria",
+    "custom enclosures Pretoria",
+    "precision parts Pretoria",
+    "tooling fixtures Pretoria",
+    "3D printer rental Pretoria",
+    "additive manufacturing Pretoria",
+    "digital manufacturing Pretoria",
+    "small batch production Pretoria",
+    "custom parts Pretoria",
+    "mechanical parts Pretoria",
+    "engineering prototypes Pretoria",
+    "product development Pretoria",
+    "design consultation Pretoria",
+    "web development Pretoria",
+    "software development Pretoria",
   ],
   authors: [
     { name: "Ruan Klopper", url: "https://jrxstudios.co.za" },
@@ -76,24 +89,26 @@ export const metadata = {
     locale: "en_ZA",
     url: "https://jrxstudios.co.za",
     siteName: "JRX Studios",
-    title: "JRX Studios - Professional 3D Printing & Product Design Services",
+    title:
+      "JRX Studios - 3D Printing Services Pretoria | Product Design & Prototyping",
     description:
-      "Professional 3D printing services, product design, web development, and electronics solutions in South Africa. Custom prototypes, industrial parts, and innovative designs.",
+      "Leading 3D printing services in Pretoria, South Africa. Professional FDM printing, product design, rapid prototyping, and electronics solutions. Custom parts and manufacturing services.",
     countryName: "South Africa",
     images: [
       {
         url: "https://jrxstudios.co.za/essentials/logo.png",
         width: 1200,
         height: 630,
-        alt: "JRX Studios - Professional 3D Printing & Product Design Services",
+        alt: "JRX Studios - 3D Printing Services Pretoria | Product Design & Prototyping",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "JRX Studios - Professional 3D Printing & Product Design Services",
+    title:
+      "JRX Studios - 3D Printing Services Pretoria | Product Design & Prototyping",
     description:
-      "Professional 3D printing services, product design, web development, and electronics solutions in South Africa.",
+      "Leading 3D printing services in Pretoria, South Africa. Professional FDM printing, product design, rapid prototyping, and electronics solutions.",
     creator: "@jrxstudios",
     images: ["https://jrxstudios.co.za/essentials/logo.png"],
   },
@@ -131,14 +146,8 @@ export default function RootLayout({
         "@id": "https://jrxstudios.co.za/#organization",
         name: "JRX Studios",
         url: "https://jrxstudios.co.za",
-        logo: {
-          "@type": "ImageObject",
-          url: "https://jrxstudios.co.za/essentials/logo.png",
-          width: 200,
-          height: 200,
-        },
         description:
-          "Professional 3D printing services, product design, web development, and electronics solutions in South Africa.",
+          "Leading 3D printing services in Pretoria, South Africa. Professional FDM printing, product design, rapid prototyping, and electronics solutions.",
         foundingDate: "2023",
         founders: [
           {
@@ -158,8 +167,11 @@ export default function RootLayout({
         ],
         address: {
           "@type": "PostalAddress",
+          streetAddress: "Pretoria",
           addressLocality: "Pretoria",
-          addressCountry: "South Africa",
+          addressRegion: "Gauteng",
+          postalCode: "0001",
+          addressCountry: "ZA",
         },
         contactPoint: {
           "@type": "ContactPoint",
@@ -171,10 +183,32 @@ export default function RootLayout({
           "https://www.instagram.com/jrxstudios",
           "https://github.com/jrxstudios",
         ],
-        serviceArea: {
-          "@type": "Country",
-          name: "South Africa",
-        },
+        serviceArea: [
+          {
+            "@type": "City",
+            name: "Pretoria",
+            containedInPlace: {
+              "@type": "AdministrativeArea",
+              name: "Gauteng",
+              containedInPlace: {
+                "@type": "Country",
+                name: "South Africa",
+              },
+            },
+          },
+          {
+            "@type": "AdministrativeArea",
+            name: "Gauteng",
+            containedInPlace: {
+              "@type": "Country",
+              name: "South Africa",
+            },
+          },
+          {
+            "@type": "Country",
+            name: "South Africa",
+          },
+        ],
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "3D Printing Services",
@@ -185,7 +219,7 @@ export default function RootLayout({
                 "@type": "Service",
                 name: "3D Printing Services",
                 description:
-                  "Professional FDM 3D printing with PLA, PETG, ABS, and TPU materials",
+                  "Professional FDM 3D printing services in Pretoria with PLA, PETG, ABS, and TPU materials. Custom parts and prototypes.",
               },
             },
             {
@@ -193,7 +227,8 @@ export default function RootLayout({
               itemOffered: {
                 "@type": "Service",
                 name: "Product Design",
-                description: "Custom product design and CAD modeling services",
+                description:
+                  "Custom product design and CAD modeling services in Pretoria, South Africa",
               },
             },
             {
@@ -202,7 +237,7 @@ export default function RootLayout({
                 "@type": "Service",
                 name: "Web Development",
                 description:
-                  "Full-stack web development and mobile applications",
+                  "Full-stack web development and mobile applications for Pretoria businesses",
               },
             },
             {
@@ -211,7 +246,7 @@ export default function RootLayout({
                 "@type": "Service",
                 name: "Electronics Solutions",
                 description:
-                  "IoT development, embedded systems, and custom electronics",
+                  "IoT development, embedded systems, and custom electronics solutions in Pretoria",
               },
             },
           ],
@@ -223,7 +258,7 @@ export default function RootLayout({
         url: "https://jrxstudios.co.za",
         name: "JRX Studios",
         description:
-          "Professional 3D printing services, product design, web development, and electronics solutions in South Africa.",
+          "Leading 3D printing services in Pretoria, South Africa. Professional FDM printing, product design, rapid prototyping, and electronics solutions.",
         publisher: {
           "@id": "https://jrxstudios.co.za/#organization",
         },
@@ -233,7 +268,7 @@ export default function RootLayout({
         "@type": "WebPage",
         "@id": "https://jrxstudios.co.za/#webpage",
         url: "https://jrxstudios.co.za",
-        name: "JRX Studios - Professional 3D Printing & Product Design Services",
+        name: "JRX Studios - 3D Printing Services Pretoria | Product Design & Prototyping",
         isPartOf: {
           "@id": "https://jrxstudios.co.za/#website",
         },
@@ -241,7 +276,7 @@ export default function RootLayout({
           "@id": "https://jrxstudios.co.za/#organization",
         },
         description:
-          "Professional 3D printing services, product design, web development, and electronics solutions in South Africa. Custom prototypes, industrial parts, and innovative designs.",
+          "Leading 3D printing services in Pretoria, South Africa. Professional FDM printing, product design, rapid prototyping, and electronics solutions. Custom prototypes, industrial parts, and innovative designs.",
         inLanguage: "en-ZA",
       },
     ],
@@ -268,22 +303,29 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="JRX Studios" />
         <meta name="msapplication-TileColor" content="#3b82f6" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
-        <meta name="geo.region" content="ZA" />
+        <meta name="geo.region" content="ZA-GP" />
         <meta name="geo.placename" content="Pretoria" />
         <meta name="geo.position" content="-25.7479;28.2293" />
         <meta name="ICBM" content="-25.7479, 28.2293" />
+        <meta name="locality" content="Pretoria" />
+        <meta name="region" content="Gauteng" />
+        <meta name="country" content="South Africa" />
+        <meta name="postal-code" content="0001" />
+        <meta name="business-name" content="JRX Studios" />
+        <meta name="business-type" content="3D Printing Services" />
+        <meta name="service-area" content="Pretoria, Gauteng, South Africa" />
         <meta
           name="DC.title"
-          content="JRX Studios - Professional 3D Printing & Product Design Services"
+          content="JRX Studios - 3D Printing Services Pretoria | Product Design & Prototyping"
         />
         <meta name="DC.creator" content="JRX Studios" />
         <meta
           name="DC.subject"
-          content="3D Printing, Product Design, Web Development, Electronics"
+          content="3D Printing Pretoria, Product Design Pretoria, Rapid Prototyping Pretoria, Electronics Pretoria"
         />
         <meta
           name="DC.description"
-          content="Professional 3D printing services, product design, web development, and electronics solutions in South Africa."
+          content="Leading 3D printing services in Pretoria, South Africa. Professional FDM printing, product design, rapid prototyping, and electronics solutions."
         />
         <meta name="DC.publisher" content="JRX Studios" />
         <meta name="DC.contributor" content="Ruan Klopper, Johnny Dippenaar" />
@@ -292,7 +334,7 @@ export default function RootLayout({
         <meta name="DC.format" content="text/html" />
         <meta name="DC.identifier" content="https://jrxstudios.co.za" />
         <meta name="DC.language" content="en" />
-        <meta name="DC.coverage" content="South Africa" />
+        <meta name="DC.coverage" content="Pretoria, Gauteng, South Africa" />
         <meta name="DC.rights" content="Copyright JRX Studios" />
       </head>
       <body className="min-h-screen bg-background text-foreground font-sans antialiased">
