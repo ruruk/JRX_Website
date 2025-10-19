@@ -80,6 +80,14 @@ export const metadata = {
     description:
       "Professional 3D printing services, product design, web development, and electronics solutions in South Africa. Custom prototypes, industrial parts, and innovative designs.",
     countryName: "South Africa",
+    images: [
+      {
+        url: "https://jrxstudios.co.za/essentials/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "JRX Studios - Professional 3D Printing & Product Design Services",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -87,6 +95,7 @@ export const metadata = {
     description:
       "Professional 3D printing services, product design, web development, and electronics solutions in South Africa.",
     creator: "@jrxstudios",
+    images: ["https://jrxstudios.co.za/essentials/logo.png"],
   },
   verification: {
     google: "your-google-verification-code",
@@ -124,7 +133,7 @@ export default function RootLayout({
         url: "https://jrxstudios.co.za",
         logo: {
           "@type": "ImageObject",
-          url: "https://jrxstudios.co.za/placeholder-logo.svg",
+          url: "https://jrxstudios.co.za/essentials/logo.png",
           width: 200,
           height: 200,
         },
@@ -250,9 +259,9 @@ export default function RootLayout({
         />
         <link rel="canonical" href="https://jrxstudios.co.za" />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="apple-touch-icon" href="/placeholder-logo.png" />
-        <link rel="icon" type="image/svg+xml" href="/placeholder-logo.svg" />
-        <link rel="icon" type="image/png" href="/placeholder-logo.png" />
+        <link rel="apple-touch-icon" href="/essentials/logo.png" />
+        <link rel="icon" type="image/png" href="/essentials/logo.png" />
+        <link rel="shortcut icon" href="/essentials/logo.png" />
         <meta name="theme-color" content="#3b82f6" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
